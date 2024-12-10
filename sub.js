@@ -1,7 +1,7 @@
 const mqtt = require('mqtt');
 
 // MQTT broker URL
-const brokerUrl = 'mqtt://172.8.9.47'; // Replace with your broker URL
+const brokerUrl = 'mqtt://172.23.211.26'; // Replace with your broker URL
 //  const brokerUrl = 'mqtt://103.180.245.45';
 
 // Create a client instance
@@ -14,12 +14,13 @@ const client = mqtt.connect(brokerUrl, {
 
 
 // Subscribe to a topic 
-// const topic = 'jbl/enrollment/status/11'; // Replace with your desired topic
-// const topic = 'jbl/attendance/11'; // Replace with your desired topic
-// const topic = 'jbl/enrollment/status/11';
+// const topic = 'jbl/enrollment/status/63'; // Replace with your desired topic
+// const topic = 'jbl/cameraStatus/127'; // Replace with your desired topic
+//  const topic = 'jbl/disenrollment/status/90';
 // const topic = 'jbl/cameraStatus/#'; // Replace with your desired topic
 //  const topic = 'jbl/disenrollment/status/31'; // Replace with your desired topic
- const topic = 'jbl/disenrollment/22'
+//  const topic = 'jbl/disenrollment/22'
+ const topic = 'jbl/attendance/166'
 
 client.on('connect', () => {
   console.log('Subscriber connected to MQTT broker');

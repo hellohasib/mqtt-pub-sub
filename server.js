@@ -1,11 +1,13 @@
 const express = require('express');
 const axios = require('axios');
+const cors = require('cors');
+const { main } = require('./employee_image');
 
 const app = express();
 const port = 3000; // You can change this to your desired port
 
 app.use(express.json());
-
+app.use(cors());
 app.post('/get-clients', async (req, res) => {
   const username = 'admin'
   const password = 'public'
@@ -33,6 +35,8 @@ app.post('/get-clients', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+
+app.get('/employee-images', main);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

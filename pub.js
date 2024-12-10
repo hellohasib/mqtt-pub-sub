@@ -13,7 +13,7 @@ const fs = require('fs');
 //   port: "1883"
 // });
 
-const brokerUrl = 'mqtt://172.8.9.47'; // Replace with your broker URL
+const brokerUrl = 'mqtt://172.23.211.26'; // Replace with your broker URL
 // const brokerUrl = 'mqtt://103.180.245.45';
 
 // Create a client instance
@@ -37,14 +37,14 @@ const retain_qos = {
 // const branchId = 3;
 // const topic = 'jbl/attendance/1'; // Replace with the topic you want to publish to
 // const topic = 'jbl/enrollment/11';
- const topic = "jbl/enrollment/1";
- const imagePath = './2007121801s.png'; // Replace with t he path to your local image
-const employeeId = '2007121801s'; // Replace with the employee ID
-const name = '2007121801';
+ const topic = "jbl/enrollment/63";
+ const imagePath = './2024051613s.png'; // Replace with t he path to your local image
+const employeeId = '2024051613s'; // Replace with the employee ID
+const name = '2024051613s';
 const branchId = 11;
 const confidenceScore = 0.85;
 const entryExitType = 0;
-const time = "2023-10-02 15:53:59"; 
+const time = "2024-05-25 11:01:54"; 
 
 fs.readFile(imagePath, (err, data) => {
   if (err) {
@@ -52,10 +52,10 @@ fs.readFile(imagePath, (err, data) => {
     return;
   }
 
-  const imageBase64 = data.toString('base64');
+   const imageBase64 = data.toString('base64');
    const message = JSON.stringify({ image: imageBase64, employee_id: employeeId , employee_no: employeeId, name: name });
-  // const message = JSON.stringify({ employee_id : employeeId });
-  //  const message = JSON.stringify({  employee_id : employeeId });
+  // const message = JSON.stringify({ employee_id : employeeId, time: time   });
+  // const message = JSON.stringify({  employee_id : employeeId });
 
   client.on('connect', () => {
     console.log('Publisher connected to MQTT broker');
